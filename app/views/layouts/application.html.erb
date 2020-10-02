@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TaskManager</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-logo">
+        <% if @current_user %>
+          <%= link_to("TaskManager", "/tasks/#{@current_user.id}/index") %>
+        <% else %>
+          <%= link_to("TaskManager", "/") %>
+        <% end %>
+      </div>
+      <ul class="header-menus">
+        <% if @current_user %>
+          <li>
+            <%= link_to("タスク一覧", "/tasks/#{@current_user.id}/index") %>
+          </li>
+          <li>
+            <%= link_to("ソート・絞り込み", "/tasks/sort_form") %>
+          </li>
+          <li>
+            <%= link_to("新規タスク", "/tasks/new") %>
+          </li>
+          <li>
+            <%= link_to("設定", "/users/#{@current_user.id}") %>
+          </li>
+          <li>
+            <%= link_to("ログアウト", "/logout", {method: :post}) %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to("新規登録", "/signup") %>
+          </li>
+          <li>
+            <%= link_to("ログイン", "/login") %>
+          </li>
+        <% end %>
+      </ul>
+    </header>
+
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

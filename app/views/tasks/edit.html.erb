@@ -1,0 +1,32 @@
+<div class="main tasks-edit">
+  <div class="container">
+    <div class="form-heading">タスク編集</div>
+    <div class="form tasks-form">
+      <div class="form-body">
+        <% @task.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
+
+        <%= form_for @task, :url => {:controller => :tasks, :action => :update, :id => params[:id]} do |f| %>
+        <p>タスク名</p>
+        <%= f.text_field :task_name %>
+        <p>科目名</p>
+        <%= f.text_field :subject_name %>
+        <p>締め切り日時</p>
+        <%= f.datetime_select :deadline, use_month_numbers: true, default: {year: Time.now.year, month: Time.now.month, day: Time.now.day+1, hour: 0, minute: 0} %>
+        <div class="radio">
+          <p>優先度</p>
+          <%= f.radio_button :priority, 0, checked: true %>低
+          <%= f.radio_button :priority, 1 %>中
+          <%= f.radio_button :priority, 2 %>高
+        </div>
+        <p>メモ</p>
+        <%= f.text_area :note %>
+        <%= f.submit  "保存"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

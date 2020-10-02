@@ -1,0 +1,18 @@
+<div class="main user-show">
+  <div class="container">
+    <h1 class="users-heading">ユーザー情報</h1>
+    <div class="user">
+      <div class="users-show-item">
+        <p class="item-title">ユーザー名</p>
+        <%= @user.name %>
+        <p class="item-title">メールアドレス</p>
+        <%= @user.email %>
+      </div>
+      <% if @user.id == @current_user.id %>
+        <div class="edit-btn">
+          <%= link_to("編集", "/users/#{@user.id}/edit") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

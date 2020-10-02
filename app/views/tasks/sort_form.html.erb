@@ -1,0 +1,21 @@
+<div class="main tasks-sort">
+  <div class="container">
+    <div class="form-heading">ソート・絞り込み</div>
+    <div class="form">
+      <div class="form-body">
+
+        <%= form_tag("/tasks/#{@current_user.id}/index") do %>
+          <p>ソート順</p>
+          <input type="radio" name="sort" value="deadline" checked="checked">締め切り日時
+          <input type="radio" name="sort" value="created_at">作成日
+          <input type="radio" name="sort" value="priority" >優先度
+          <p>絞り込み</p>
+          <input type="radio" name="search" value="uncomplete" checked="checked">未完了のみ
+          <input type="radio" name="search" value="completed" >完了済のみ
+          <input type="radio" name="search" value="all" >全て
+          <input type="submit" value="確定">
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

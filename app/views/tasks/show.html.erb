@@ -1,0 +1,60 @@
+<div class="main tasks-show">
+  <div class="container">
+    <h1 class="tasks-heading">タスク詳細</h1>
+    <div class="task">
+      <div class="tasks-show-item">
+        <p class="item-title">タスク名</p>
+        <%= @task.task_name %>
+        <p class="item-title">科目名</p>
+        <% if @task.subject_name %>
+          <%= @task.subject_name %>
+        <% else %>
+          <p> </p>
+        <% end %>
+        <p class="item-title">締め切り日時</p>
+        <% if @task.deadline %>
+          <%= @deadline %>
+        <% else %>
+          <p> </p>
+        <% end %>
+        <p class="item-title">優先度</p>
+        <% if @task.priority==0 %>
+          <p>
+            低
+          </p>
+        <% elsif @task.priority==1 %>
+          <p>
+            中
+          </p>
+        <% elsif @task.priority==2 %>
+          <p>
+            高
+          </p>
+        <% else %>
+          <p> </p>
+        <% end %>
+        <p class="item-title">メモ</p>
+        <% if @task.note %>
+          <%= @task.note %>
+        <% else %>
+          <p> </p>
+        <% end %>
+
+        <div class="edit-btn">
+          <%= link_to("編集", "/tasks/#{@task.id}/edit") %>
+        </div>
+        <div class="task-menus-left">
+          <%= link_to("戻る", "/tasks/#{@current_user.id}/index") %>
+        </div>
+        <div class="task-menus-right">
+          <% if @task.complete_flg == 0 %>
+            <%= link_to("完了にする", "/tasks/#{@task.id}/complete") %>
+          <% else %>
+            <%= link_to("未完了にする", "/tasks/#{@task.id}/uncomplete") %>
+          <% end %>
+          <%= link_to("削除", "/tasks/#{@task.id}/delete") %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

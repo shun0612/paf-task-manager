@@ -1,0 +1,79 @@
+
+.tasks-heading {
+  font-weight: 300;
+  margin: 60px 0 20px;
+  font-size: 48px;
+  color: #bcc8d4;
+}
+
+/* tasks/show, tasks/new, tasks/edit ================================ */
+.task{
+  margin: 0 auto;
+  padding: 10px 30px 50px 30px;
+  background-color: white;
+  box-shadow: 0 2px 6px #c1ced7;
+}
+
+.item-title{
+  padding-top: 20px
+}
+
+.edit-btn {
+  padding-top: 20px;
+  text-align: center;
+  color: #8899a6;
+  text-decoration: underline;
+  font-weight: 200;
+}
+
+.task-menus-left a{
+  background-color: #ecc866;
+  color: #151526;
+  cursor: pointer;
+  font-weight: 300;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 8px;
+  float: left;
+}
+
+.task-menus-right a{
+  background-color: #ecc866;
+  color: #151526;
+  cursor: pointer;
+  font-weight: 300;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 8px 0px 0px 10px;
+  float: right;
+}
+
+/* tasks/index ================================ */
+.tasks-index-item{
+  margin: 0 auto;
+  padding: 10px 30px 20px 30px;
+  background-color: white;
+  box-shadow: 0 2px 6px #c1ced7;
+}
+
+.index-item-title{
+  padding-top: 10px
+}
+
+.tasks-index-item a{
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.right-item{
+  float: right;
+}
+
+.complete{
+  color: red;
+  margin-top: 50px;
+}
+
+.priority{
+  margin-top: 62px;
+}
