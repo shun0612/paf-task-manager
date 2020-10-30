@@ -42,6 +42,9 @@
           <li>
             <%= link_to("ログイン", "/login") %>
           </li>
+          <li>
+            <%= link_to("twitterでログイン" ,"/auth/twitter", {method: :post}) %>
+          </li>
         <% end %>
       </ul>
     </header>
