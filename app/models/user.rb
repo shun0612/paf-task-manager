@@ -25,4 +25,16 @@ class User < ApplicationRecord
     end
   end
 
+  def self.find_or_create_from_auth(auth)
+  name = auth[:info][:name]
+  email = "@" + auth[:info][:nickname]
+  password = "admin"
+
+  self.find_or_create_by(email: email, password: password) do |user|
+    user.name = name
+    user.email = email
+    user.password = password
+  end
+end
+
 end

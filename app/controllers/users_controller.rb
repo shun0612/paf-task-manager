@@ -22,6 +22,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def twitter
+    @user = User.find_or_create_from_auth(request.env['omniauth.auth'])
+    session[:user_id] = @user.id
+    flash[:notice] = "ログインしました"
+    $sort = "deadline"
+    $search = "uncomplete"
+    redirect_to("/tasks/#{@user.id}/index")
+  end
+
   def logout
     session[:user_id] = nil
     flash[:notice] = "ログアウトしました"

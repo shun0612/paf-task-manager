@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'login' => "users#login_form"
   post 'login' => "users#login"
   post "logout" => "users#logout"
+  get '/auth/:provider/callback' => "users#twitter"
 
   get "tasks/new" => "tasks#new"
   post "tasks/create" => "tasks#create"
