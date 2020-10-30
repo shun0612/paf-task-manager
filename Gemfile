@@ -64,5 +64,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'dotenv-rails'
 
 gem 'omniauth-twitter'
+gem "omniauth-rails_csrf_protection"
 
 gem 'rails_12factor', group: :production
